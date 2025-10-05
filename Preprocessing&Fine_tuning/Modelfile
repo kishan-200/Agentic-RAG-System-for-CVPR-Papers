@@ -1,0 +1,15 @@
+FROM ./gemma-3-4b-cvpr-q4_k_m.gguf
+
+TEMPLATE """{{ if .System }}<start_of_turn>system
+{{ .System }}<end_of_turn>
+{{ end }}<start_of_turn>user
+{{ .Prompt }}<end_of_turn>
+<start_of_turn>model"""
+
+SYSTEM """You are a helpful assistant for CVPR papers. Use provided context to answer accurately. If unsure, explain why."""
+
+PARAMETER temperature 0.7
+PARAMETER top_p 0.95
+PARAMETER top_k 50
+PARAMETER repeat_penalty 1.1
+PARAMETER stop "<end_of_turn>"
