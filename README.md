@@ -1,4 +1,4 @@
-# Qpai_assignment
+# Agentic RAG System for CVPR Papers
 
 # Data pipeline:
 
